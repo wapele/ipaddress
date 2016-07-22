@@ -1,0 +1,36 @@
+<?php
+/*
+ *  +---------------------------------------------------------------------
+ *  |thinkphp5 扩展
+ *  +---------------------------------------------------------------------
+ *  |编写日期：2016-07-23
+ *  +---------------------------------------------------------------------
+ *  |作者：陈序潭
+ *  +---------------------------------------------------------------------
+ *  |联系：386117932
+ *  +---------------------------------------------------------------------
+*/
+namespace think\ipaddress;
+class Ip{
+    //操作句柄
+    protected static $handler = null;
+    //默认类型
+    protected static $type="taobao"; //taobao sina
+    //程序初始化
+    public function __construct($type){
+        self::$type=$type;
+        
+    }
+    /*
+     * 获取ip地址库
+    */
+    public static function getipadress($ip=null){        
+        if ($ip){
+            //这里需要对IP进行验证
+        }
+        $class         = '\\think\\ipaddress\\driver\\' . ucwords(self::$type);
+        self::$handler = new $class($ip);
+        
+        return self::$handler->getipaddress();
+    }
+}
