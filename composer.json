@@ -1,0 +1,17 @@
+{
+    "name": "wapele/ipaddress",
+    "description": "The ThinkPHP5 ipaddress",
+    "authors": [
+        {
+            "name": "wapele",
+            "email": "386117932@qq.com"
+        }
+    ],
+    "license": "Apache-2.0",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "think\\": "src"
+        }
+    }
+}
