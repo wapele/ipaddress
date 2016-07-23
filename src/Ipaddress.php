@@ -29,7 +29,10 @@ class Ipaddress{
     */
     public static function getipaddress($ip=null){        
         if ($ip){
-            //这里需要对IP进行验证
+            $validate = new Validate(["ip"=>"ip"]);
+            if (!$validate->check($ip)){ //验证无法通过
+                $ip=null;
+            }
         }
         self::$config = array_merge(self::$config, ["ip"=>$ip]);
         $class         = '\\think\\driver\\' . ucwords(self::$config["type"]);
