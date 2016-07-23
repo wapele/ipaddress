@@ -32,7 +32,7 @@ class Ipaddress{
             //这里需要对IP进行验证
         }
         self::$config = array_merge(self::$config, ["ip"=>$ip]);
-        $class         = '\\think\\ipaddress\\driver\\' . ucwords(self::$config["type"]);
+        $class         = '\\think\\driver\\' . ucwords(self::$config["type"]);
         self::$handler = new $class(self::$config);
         
         return self::$handler->getipaddress();
