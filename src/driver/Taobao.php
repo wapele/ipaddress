@@ -1,13 +1,13 @@
 <?php
 /*
  *  +---------------------------------------------------------------------
- *  |thinkphp5 æ‰©å±•
+ *  |thinkphp5 À©Õ¹
  *  +---------------------------------------------------------------------
- *  |ç¼–å†™æ—¥æœŸï¼š2016-07-23
+ *  |±àÐ´ÈÕÆÚ£º2016-07-23
  *  +---------------------------------------------------------------------
- *  |ä½œè€…ï¼šé™ˆåºæ½­
+ *  |×÷Õß£º³ÂÐòÌ¶
  *  +---------------------------------------------------------------------
- *  |è”ç³»ï¼š386117932
+ *  |ÁªÏµ£º386117932
  *  +---------------------------------------------------------------------
 */
 namespace think\driver;
@@ -25,16 +25,16 @@ class Taobao
     protected static function httpget(){
         $url="http://ip.taobao.com/service/getIpInfo.php?ip=".self::$config["ip"];
         $content = file_get_contents($url);
-        $json = json_decode($content,true);//è½¬åŒ–æˆæ•°ç»„
+        $json = json_decode($content,true);//×ª»¯³ÉÊý×é
         $json=self::getdata($json);
         return $json;
     }
-    //è½¬æ¢ç»Ÿä¸€æ•°ç»„
+    //×ª»»Í³Ò»Êý×é
     protected static function getdata($arr){
-        $data["country"]=$arr["data"]["country"];//ä¸­å›½
-        $data["province"]=$arr["data"]["region"];//çœä»½
-        $data["city"]=$arr["data"]["city"];//åŸŽå¸‚
-        $data["isp"]=$arr["data"]["isp"];//ç§»åŠ¨
+        $data["country"]=$arr["data"]["country"];//ÖÐ¹ú
+        $data["province"]=$arr["data"]["region"];//Ê¡·Ý
+        $data["city"]=$arr["data"]["city"];//³ÇÊÐ
+        $data["isp"]=$arr["data"]["isp"];//ÒÆ¶¯
         $data["ip"]=$arr["data"]["ip"];//ip
         if (self::$config["result"]=="string"){
             $data=$data["province"].$data["city"];
